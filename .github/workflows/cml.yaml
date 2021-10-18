@@ -1,0 +1,28 @@
+name: test-run
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: iterative/setup-cml@v1
+      - uses: iterative/setup-dvc@v1
+
+      - name: Train model
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+
+        run: |
+          echo "test run"
+          # Your ML workflow goes here
+          dvc pull
+          pip install -r requirements.txt
+          
+          python train.py
+          
+          echo "## Model metrics" > report.md
+          cat metrics.csv >> report.md
+          
+          cml-send-comment report.md
