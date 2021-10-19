@@ -1,0 +1,15 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python3 train.py --force
+    deps:
+    - path: anchors.csv
+      md5: 1e7119f669939ac7b542124d0acb4f09
+      size: 62208
+    - path: train.py
+      md5: b492f1881beb9f894d8e3852d1fade7a
+      size: 926
+    outs:
+    - path: metrics.csv
+      md5: 98937548d721445b2095fb13deb756d7
+      size: 13
