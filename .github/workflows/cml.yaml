@@ -18,6 +18,10 @@ jobs:
           # Your ML workflow goes here
           dvc pull --run-cache
           pip install -r requirements.txt
+          # Start tensorboard and train
+          - cml-tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
+          - cml-send-comment report.md
+
           
           python train.py
           
