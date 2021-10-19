@@ -26,6 +26,6 @@ jobs:
           cml-tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
           cml-send-comment report.md
           python train.py
-          echo "## Model metrics" >> report.md
-          cat metrics.csv >> report.md
-          cml-send-comment report.md
+          echo "## Model metrics" >> report1.md
+          cat metrics.csv >> report1.md
+          cml-send-comment report1.md
