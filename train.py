@@ -7,6 +7,7 @@ from keras.callbacks import TensorBoard
 my_data = np.genfromtxt('anchors.csv', delimiter=',')
 
 
+
 X = my_data[:,:-1]
 y = my_data[:,-1]
 
