@@ -22,9 +22,9 @@ jobs:
           dvc pull --run-cache
           pip install -r requirements.txt
           # Start tensorboard and train
-          echo "## header" > report.md
-          cml-tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
-          cml-send-comment report.md
+          # echo "## header" > report.md
+          # cml-tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
+          # cml-send-comment report.md
           python train.py
           echo "## Model metrics" >> report1.md
           cat metrics.csv >> report1.md
