@@ -23,8 +23,8 @@ tensorboard_callback = TensorBoard(log_dir=log_dir, histogram_freq=1)
 
 # fit the keras model on the dataset
 model.fit(X, y,
-          epochs=200, 
-          steps_per_epoch=30, 
+          epochs=1000, 
+          steps_per_epoch=200, 
           batch_size=2, 
           callbacks=[tensorboard_callback])
 
