@@ -19,6 +19,7 @@ jobs:
           dvc pull --run-cache
           pip install -r requirements.txt
           # Start tensorboard and train
+          mkdir logs/
           - cml-tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
           - cml-send-comment report.md
 
