@@ -1,7 +1,7 @@
 schema: '2.0'
 stages:
-  train:
-    cmd: python3 train.py --force
+  test_pipeline:
+    cmd: python3 train.py
     deps:
     - path: anchors.csv
       md5: 1e7119f669939ac7b542124d0acb4f09

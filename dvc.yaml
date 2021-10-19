@@ -1,8 +1,9 @@
 stages:
-  train:
-    cmd: python3 train.py --force
+  test_pipeline:
+    cmd: python3 train.py
     deps:
     - anchors.csv
     - train.py
     outs:
-    - metrics.csv
+    - metrics.csv:
+        cache: false
