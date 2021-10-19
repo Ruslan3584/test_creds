@@ -23,9 +23,9 @@ jobs:
           pip install -r requirements.txt
           # Start tensorboard and train
           echo "## header" > report.md
-          - cml-tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
-          - cml-send-comment report.md
+          cml-tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
+          cml-send-comment report.md
           python train.py
-          #echo "## Model metrics" >> report.md
-          #cat metrics.csv >> report.md
-          #cml-send-comment report.md
+          echo "## Model metrics" >> report.md
+          cat metrics.csv >> report.md
+          cml-send-comment report.md
