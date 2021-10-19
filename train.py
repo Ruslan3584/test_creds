@@ -2,6 +2,7 @@ import numpy as np
 import datetime
 from keras.models import Sequential
 from keras.layers import Dense
+from keras.callbacks import TensorBoard
 
 my_data = np.genfromtxt('anchors.csv', delimiter=',')
 
@@ -17,7 +18,7 @@ model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+tensorboard_callback = TensorBoard(log_dir=log_dir, histogram_freq=1)
 
 
 # fit the keras model on the dataset
