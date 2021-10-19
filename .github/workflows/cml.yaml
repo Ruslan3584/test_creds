@@ -22,8 +22,8 @@ jobs:
           # Start tensorboard and train
           # mkdir logs/
           # echo $(ls)
-          # - cml tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
-          # - cml send-comment report.md
+          - cml tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
+          - cml send-comment report.md
           python train.py
           echo "## Model metrics" > report.md
           cat metrics.csv >> report.md
