@@ -128,3 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /anchors.csv
+/metrics.csv
+/test.csv
