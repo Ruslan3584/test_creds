@@ -32,6 +32,8 @@ model.fit(X, y,
 
 _, accuracy = model.evaluate(X, y)
 
+model.save("saved_model")
+
 
 with open("metrics.csv","w") as outfile:
     outfile.write("accuracy: " + str(accuracy))

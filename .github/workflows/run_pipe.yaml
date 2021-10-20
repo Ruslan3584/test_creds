@@ -11,7 +11,7 @@ jobs:
         with:
           python-version: '3.6'
 
-      - name: Train model(pipe)
+      - name: Train and test model(pipe)
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
@@ -19,13 +19,16 @@ jobs:
         run: |
           echo "test run pipeline"
           # Your ML workflow goes here
-          dvc pull --run-cache
+          dvc pull anchors.csv --run-cache
+          dvc pull test.csv --run-cache
           pip install -r requirements.txt
           # Start tensorboard and train
           # echo "## header" > report.md
           # cml-tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
           # cml-send-comment report.md
           dvc repro
-          echo "## Model metrics" >> report1.md
+          echo "## Model train metrics" >> report1.md
           cat metrics.csv >> report1.md
+          echo "## Model test metrics" >> report1.md
+          cat test_metrics.csv >> report1.md
           cml-send-comment report1.md
