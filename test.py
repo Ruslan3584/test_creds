@@ -14,7 +14,6 @@ X = my_data[:,:-1]
 y = my_data[:,-1]
 
 
-
 _, accuracy = model.evaluate(X, y)
 
 
