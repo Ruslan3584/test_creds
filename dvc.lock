@@ -9,3 +9,7 @@ stages:
     - path: train.py
       md5: b492f1881beb9f894d8e3852d1fade7a
       size: 926
+    outs:
+    - path: metrics.csv
+      md5: 0d920fec070dad2fd608be106fc33360
+      size: 13

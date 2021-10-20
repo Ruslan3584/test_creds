@@ -4,3 +4,6 @@ stages:
     deps:
     - anchors.csv
     - train.py
+    outs:
+    - metrics.csv:
+        cache: false
