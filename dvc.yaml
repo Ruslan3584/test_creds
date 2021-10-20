@@ -1,0 +1,20 @@
+stages:
+  train_model:
+    cmd: python3 train.py
+    deps:
+    - anchors.csv
+    - train.py
+    outs:
+    - metrics.csv:
+        cache: false
+    - saved_model:
+        cache: false
+  test_model:
+    cmd: python3 test.py
+    deps:
+    - test.csv
+    - test.py
+    - saved_model
+    outs:
+    - test_metrics.csv:
+        cache: false

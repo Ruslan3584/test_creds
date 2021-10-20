@@ -1,0 +1,36 @@
+schema: '2.0'
+stages:
+  train_model:
+    cmd: python3 train.py
+    deps:
+    - path: anchors.csv
+      md5: 1e7119f669939ac7b542124d0acb4f09
+      size: 62208
+    - path: train.py
+      md5: 1addf8ad2de8098f49cca302d9b6ace4
+      size: 953
+    outs:
+    - path: metrics.csv
+      md5: 98937548d721445b2095fb13deb756d7
+      size: 13
+    - path: saved_model
+      md5: 82b2891b819951ddf5297c8702a0d64f.dir
+      size: 81609
+      nfiles: 4
+  test_model:
+    cmd: python3 test.py
+    deps:
+    - path: saved_model
+      md5: 82b2891b819951ddf5297c8702a0d64f.dir
+      size: 81609
+      nfiles: 4
+    - path: test.csv
+      md5: 580a5c047fa0eaadb4b37604eaaf52af
+      size: 66
+    - path: test.py
+      md5: d391442964cdcc876ff59879feaf306a
+      size: 444
+    outs:
+    - path: test_metrics.csv
+      md5: 98937548d721445b2095fb13deb756d7
+      size: 13
