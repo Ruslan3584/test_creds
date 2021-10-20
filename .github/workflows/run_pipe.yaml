@@ -29,6 +29,6 @@ jobs:
           dvc repro
           echo "## Model train metrics" > report1.md
           cat metrics.csv >> report1.md
-          echo "## Model test metrics" >> report1.md
+          echo "## Model test metrics<br />" >> report1.md
           cat test_metrics.csv >> report1.md
           cml-send-comment report1.md
