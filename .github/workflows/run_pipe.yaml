@@ -27,7 +27,7 @@ jobs:
           # cml-tensorboard-dev --logdir logs --md --name "Go to tensorboard" >> report.md
           # cml-send-comment report.md
           dvc repro
-          echo "## Model train metrics" >> report1.md
+          echo "## Model train metrics" > report1.md
           cat metrics.csv >> report1.md
           echo "## Model test metrics" >> report1.md
           cat test_metrics.csv >> report1.md
